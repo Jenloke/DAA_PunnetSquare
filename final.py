@@ -1,4 +1,4 @@
-def generate_gene_combinations(genes: list, index=0, current=""):
+def generate_gene_combinations(genes: list, index=0, current="") -> list[str]:
     # Base Case if no elements/characters to add to every combination since index is already at the end of the list
     if index == len(genes):
         return [current]
@@ -21,7 +21,7 @@ def generate_gene_combinations(genes: list, index=0, current=""):
     return combinations
 
 
-def punnet_Square(geneA: list, geneB: list, outcome: str) -> float:
+def punnet_Square(geneA: list[str], geneB: list[str], outcome: str) -> float:
     # generate gene combination based on given 2D list
     gene_A_Possibilities = generate_gene_combinations(geneA)
     gene_B_Possbilities = generate_gene_combinations(geneB)
