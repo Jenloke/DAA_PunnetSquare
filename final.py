@@ -1,9 +1,10 @@
+# helper recursive function for punnet_square function
 def generate_gene_combinations(genes: list, index: int = 0, current: str = "") -> list[str]:
-    # Base Case if no elements/characters to add to every combination since index is already at the end of the list
+    # base case if no elements/characters to add to every combination since index is already at the end of the list
     if index == len(genes):
         return [current]
 
-    # List that will contain every possible combination 
+    # list that will contain every possible combination 
     combinations = []
 
     for gene in genes[index]:
@@ -21,27 +22,26 @@ def generate_gene_combinations(genes: list, index: int = 0, current: str = "") -
     return combinations
 
 
-def punnet_square(geneA: list[str], geneB: list[str], outcome: str) -> float:
+def punnet_square(gene_A: list[str], gene_B: list[str], outcome: str) -> float:
     # generate gene combination based on given 2D list
-    gene_A_Possibilities = generate_gene_combinations(geneA)
-    gene_B_Possbilities = generate_gene_combinations(geneB)
+    gene_A_possibilities = generate_gene_combinations(gene_A)
+    gene_B_possbilities = generate_gene_combinations(gene_B)
 
-    all_Possible_Offspring = []
-    # concatenates gene_A_Possibility and gene_B_Possibility to produce all possible offspring genes using a nested loop
-    for gene_A_Possibility in gene_A_Possibilities:
-        for gene_B_Possbility in gene_B_Possbilities:
-            combination = gene_A_Possibility + gene_B_Possbility
-            all_Possible_Offspring.append(combination)
+    all_possible_offspring = []
+    # concatenates gene_A_possibility and gene_B_possibility to produce all possible offspring genes using a nested loop
+    for gene_A_Possibility in gene_A_possibilities:
+        for gene_B_Possbility in gene_B_possbilities:
+            all_possible_offspring.append(gene_A_Possibility + gene_B_Possbility)
 
     occurance_of_outcome_offspring = 0
-    # compares every element of list all_Possible_Offspring to outcome parameter
-    for offspring in all_Possible_Offspring:
-        # sorted because outcome offspring is of different order from the elements present in all all_Possible_Offspring list
+    # compares every element of list all_possible_offspring to outcome parameter
+    for offspring in all_possible_offspring:
+        # sorted because outcome offspring is of different order from the elements present in all all_possible_offspring list
         if sorted(offspring) == sorted(outcome):
             occurance_of_outcome_offspring += 1
 
     # computes for percentage or ratio based on all the possible offspring
-    percentage_of_outcome_offspring = (occurance_of_outcome_offspring / len(all_Possible_Offspring)) * 100
+    percentage_of_outcome_offspring = (occurance_of_outcome_offspring / len(all_possible_offspring)) * 100
     
     # this makes sure that the offspring is possible if not return -1
     if (percentage_of_outcome_offspring > 0):
