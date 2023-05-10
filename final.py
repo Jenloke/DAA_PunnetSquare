@@ -22,7 +22,7 @@ def generate_gene_combinations(genes: list, index: int = 0, current: str = "") -
     return combinations
 
 
-def punnet_square(gene_A: list[str], gene_B: list[str], outcome: str) -> float:
+def punnett_square(gene_A: list[str], gene_B: list[str], outcome: str) -> float:
     # generate gene combination based on given 2D list
     gene_A_possibilities = generate_gene_combinations(gene_A)
     gene_B_possbilities = generate_gene_combinations(gene_B)
@@ -53,19 +53,19 @@ def punnet_square(gene_A: list[str], gene_B: list[str], outcome: str) -> float:
 # 4 Gene Combinations
 gene4A = [['A', 'a'], ['B', 'b'], ['C', 'c'], ['D', 'd']]
 gene4B = [['A', 'a'], ['B', 'b'], ['C', 'c'], ['D', 'd']]
-out1 = punnet_square(gene4A, gene4B, 'aabbccdd')
+out1 = punnett_square(gene4A, gene4B, 'aabbccdd')
 print(out1)
 
 # 2 Gene Combinations 
 gene2A = [['A', 'a']]
 gene2B = [['A', 'A']]
-out2 = punnet_square(gene2A, gene2B, 'Aa')
+out2 = punnett_square(gene2A, gene2B, 'Aa')
 print(out2)
 
 # 3 Gene Combination
 gene4A = [['A', 'a'], ['B', 'b'], ['C', 'c']]
 gene4B = [['A', 'a'], ['B', 'b'], ['C', 'c']]
-out3 = punnet_square(gene4A, gene4B, 'aabbcc')
+out3 = punnett_square(gene4A, gene4B, 'aabbcc')
 print(out3)
 
 # 2 Gene Combination
@@ -74,7 +74,7 @@ print(out3)
 # Second Set: Brown or Black
 gene5A = [['Long','Long'],['Black','Black']]
 gene5B = [['Long','Short'],['Black','Brown']]
-out4 = punnet_square(gene5A, gene5B, 'LongShortBlackBlack')
+out4 = punnett_square(gene5A, gene5B, 'LongShortBlackBlack')
 print(out4)
 
 # TO DO: Change input type to string only; pero parang goods na din pag list ang first two parameter
