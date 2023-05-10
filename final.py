@@ -1,4 +1,4 @@
-def generate_gene_combinations(genes: list, index=0, current="") -> list[str]:
+def generate_gene_combinations(genes: list, index: int = 0, current: str = "") -> list[str]:
     # Base Case if no elements/characters to add to every combination since index is already at the end of the list
     if index == len(genes):
         return [current]
@@ -13,7 +13,7 @@ def generate_gene_combinations(genes: list, index=0, current="") -> list[str]:
         # recursive call 
         # index is added by one because to proceed to the index of the next list in the nested list 
         # new_current is the new current parameter to produce every combination
-        sub_combinations = generate_gene_combinations(genes, index+1, new_current)
+        sub_combinations = generate_gene_combinations(genes, index + 1, new_current)
         
         # after a base case is reached, elements of sub_combinations is to be extended to combinations list
         combinations.extend(sub_combinations)
@@ -30,7 +30,7 @@ def punnet_square(geneA: list[str], geneB: list[str], outcome: str) -> float:
     # concatenates gene_A_Possibility and gene_B_Possibility to produce all possible offspring genes using a nested loop
     for gene_A_Possibility in gene_A_Possibilities:
         for gene_B_Possbility in gene_B_Possbilities:
-            combination = gene_A_Possibility+gene_B_Possbility
+            combination = gene_A_Possibility + gene_B_Possbility
             all_Possible_Offspring.append(combination)
 
     occurance_of_outcome_offspring = 0
